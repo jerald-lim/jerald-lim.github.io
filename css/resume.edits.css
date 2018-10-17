@@ -1,3 +1,11 @@
+.social-icons a:hover {
+  background-color: #386dbd;
+}
+
+.dev-icons .list-inline-item i:hover {
+  color: #386dbd;
+}
+
 .bg-primary {
   background-color: #386dbd !important;
 }
