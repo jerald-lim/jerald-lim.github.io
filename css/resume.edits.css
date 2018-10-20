@@ -21,3 +21,9 @@ a {
 a:hover, a:focus, a:active {
   color: #274882;
 }
+
+.tooltip.blue .tooltip-inner          { background-color:    #386dbd; }
+.tooltip.blue.top > .tooltip-arrow    { border-top-color:    #386dbd; }
+.tooltip.blue.right > .tooltip-arrow  { border-right-color:  #386dbd; }
+.tooltip.blue.bottom > .tooltip-arrow { border-bottom-color: #386dbd; }
+.tooltip.blue.left > .tooltip-arrow   { border-left-color:   #386dbd; }
