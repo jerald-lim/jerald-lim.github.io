@@ -70,6 +70,6 @@ $('.button-group').each( function( i, buttonGroup ) {
 });
 
 //Same Origin fix
-$.getJSON('http://www.whateverorigin.org/get?url=' + encodeURIComponent('https://spj.hkspublications.org/2018/11/13/mounting-a-response-to-physical-inactivity-two-wheels-at-a-time') + '&callback=?', function(data){
+$.getJSON('https://api.allorigins.win/get?url=' + encodeURIComponent('https://spj.hkspublications.org/2018/11/13/mounting-a-response-to-physical-inactivity-two-wheels-at-a-time') + '&callback=?', function(data){
 	alert(data.contents);
 });
