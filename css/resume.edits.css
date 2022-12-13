@@ -131,7 +131,7 @@ img{
 
 .button.is-checked {
   color: white;
-  text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);
+/*   text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8); */
 }
 
 .button:active {
