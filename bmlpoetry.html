@@ -1,0 +1,194 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/bml@0.1.9/dist/bml.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/diff_match_patch/20121119/diff_match_patch.js"></script>
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: flex-start;  /* Align to the top */
+    min-height: 100vh;
+    font-family: "Jost",-apple-system,blinkmacsystemfont,"Segoe UI",roboto,"Helvetica Neue",arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #1d2d35;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(29,45,53,0)
+}
+        @font-face {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local("Jost"),url("fonts/vendor/jost/jost-v4-latin-regular.woff2") format("woff2"),url("fonts/vendor/jost/jost-v4-latin-regular.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local("Jost"),url("fonts/vendor/jost/jost-v4-latin-500.woff2") format("woff2"),url("fonts/vendor/jost/jost-v4-latin-500.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local("Jost"),url("fonts/vendor/jost/jost-v4-latin-700.woff2") format("woff2"),url("fonts/vendor/jost/jost-v4-latin-700.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Jost";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: local("Jost"),url("fonts/vendor/jost/jost-v4-latin-italic.woff2") format("woff2"),url("fonts/vendor/jost/jost-v4-latin-italic.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Jost";
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: local("Jost"),url("fonts/vendor/jost/jost-v4-latin-500italic.woff2") format("woff2"),url("fonts/vendor/jost/jost-v4-latin-500italic.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Jost";
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: local("Jost"),url("fonts/vendor/jost/jost-v4-latin-700italic.woff2") format("woff2"),url("fonts/vendor/jost/jost-v4-latin-700italic.woff") format("woff")
+}
+#bmlContent {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        height: 80vh;
+        width: 80vw;  /* Use viewport width instead of max-width */
+        text-align: center;  /* Center text horizontally */
+        transform: rotate(90deg);
+        transform-origin: center top;  /* Rotate around the top center */
+        white-space: pre-wrap;  /* Allow text to wrap */
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: absolute;  /* Position absolutely */
+        top: 40vh;  /* Adjust top position as needed */
+        left: 50%;  /* Center horizontally */
+        transform: translateX(-50%) rotate(90deg);  /* Center and rotate */
+      }
+      .fade-in {
+        animation: fadeIn 2s;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="bmlContent"></div>
+    <script>
+              function applyDiff(oldContent, newContent) {
+        const dmp = new diff_match_patch();
+        const diff = dmp.diff_main(oldContent, newContent);
+        dmp.diff_cleanupSemantic(diff);
+        
+        let result = '';
+        diff.forEach(([operation, text]) => {
+          if (operation === 0) {
+            // No change
+            result += text;
+          } else if (operation === 1) {
+            // Insertion
+            result += `<span class="fade-in">${text}</span>`;
+          }
+          // We ignore deletions as we're only interested in new content
+        });
+        
+        return result;
+      }
+
+      function loadAndProcessBML() {
+        const contentDiv = document.getElementById("bmlContent");
+        const oldContent = contentDiv.innerHTML;
+        
+        // Load the .bml file content with cache-busting
+        fetch('roots1.bml?' + new Date().getTime())
+          .then(response => response.text())
+          .then(bmlContent => {
+            console.log('BML content loaded:', bmlContent);
+            // Process the BML content
+            const processedContent = bml(bmlContent);
+            console.log('Processed content:', processedContent);
+            
+            // Apply diff and update content
+            contentDiv.innerHTML = applyDiff(oldContent, processedContent);
+          })
+          .catch(error => console.error('Error loading BML file:', error));
+      }
+
+      // Initial load
+      loadAndProcessBML();
+
+      // Refresh every 4 seconds (4000 milliseconds)
+      setInterval(loadAndProcessBML, 4000);
+    </script>
+
+
+<script>
+    function applyDiff(oldContent1, newContent1) {
+const dmp = new diff_match_patch();
+const diff = dmp.diff_main(oldContent1, newContent1);
+dmp.diff_cleanupSemantic(diff);
+
+let result = '';
+diff.forEach(([operation, text]) => {
+if (operation === 0) {
+  // No change
+  result += text;
+} else if (operation === 1) {
+  // Insertion
+  result += `<span class="fade-in">${text}</span>`;
+}
+// We ignore deletions as we're only interested in new content
+});
+
+return result;
+}
+
+function loadAndProcessBML() {
+const contentDiv = document.getElementById("bmlContent1");
+const oldContent = contentDiv.innerHTML;
+
+// Load the .bml file content with cache-busting
+fetch('roots2.bml?' + new Date().getTime())
+.then(response => response.text())
+.then(bmlContent1 => {
+  console.log('BML content loaded:', bmlContent1);
+  // Process the BML content
+  const processedContent = bml(bmlContent);
+  console.log('Processed content:', processedContent);
+  
+  // Apply diff and update content
+  contentDiv.innerHTML = applyDiff(oldContent, processedContent);
+})
+.catch(error => console.error('Error loading BML file:', error));
+}
+
+// Initial load
+loadAndProcessBML();
+
+// Refresh every 4 seconds (4000 milliseconds)
+setInterval(loadAndProcessBML, 4000);
+</script>
+  </body>
+</html>
