@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerald Lim</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/vuk2slf.css">
+</head>
+<body>
+    <div class="progress-bar"></div>
+    <div class="scroll-container">
+        <div class="top-gradient"></div>
+        <div class="scroll-content">
+            <div class="centered-element">
+                <p>
+                    <br>
+                    <br>
+                    <br>
+                </p>
+                <p>Hi! <span class="highlight">Thank you</span> for visiting.</p>
+                <p>I hope you are having a <span class="highlight">lovely</span> day.</p>
+                <p>Just to make sure you've got the right <span class="highlight">Jerald Lim</span></p>
+                <p>(there are a few of us out here),</p>
+                <p>I'm the <span class="highlight">they/he</span> from Singapore</p>
+                <p><span class="highlight">practicing</span> poetry/artmaking/new media shenanigans</p>
+                <p>to incite <span class="highlight">care</span> and <span class="highlight">entanglement</span> and <span class="highlight">good relations</span>,</p>
+                <p>and most recently an <span class="highlight">environmental humanities grad student</span></p>
+                <p>and <span class="highlight">writing instructor</span> at the U of Utah.</p>
+                <br>
+                <p>We may have met at:</p>
+                <div class="column-list-wrapper">
+                    <div class="column-list">
+                        <ul>
+                            <li>Voices for the West 2025
+                                <br><span class="highlight">Chris La Tray's workshop</span>
+                            </li>
+                            <li>School for Poetic Computation<br>fall 2025
+                                <br><span class="highlight">Narrative Constellations</span>
+                                <br><span class="highlight">Relational Reconstructions</span>
+                            </li>
+                            <li>Colby Summer Institute in <br>Environmental Humanities 2024
+                                <br><span class="highlight">Astrida Neimanis' workshop</span>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Keystone DH2024
+                                <br><span class="highlight">Game Analysis Panel</span>
+                            </li>
+                            <li>found library
+                                <br><span class="highlight">at islands & starch</span>
+                            </li>
+                            <li>Yale-NUS College
+                                <br><span class="highlight">the college formerly known as</span>
+                            </li>
+                            <li>basketball
+                                <br><span class="highlight">at the park or smth</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <p>In the midst of turning this space into a <span class="highlight">place</span>.</p>
+                <p>If you are looking to <span class="highlight">get in touch</span>,</p>
+                <p>you may reach me at <span class="highlight">hello[at]jeraldlim.com</span></p>
+                <p>or <a href="https://www.instagram.com/jeraldlxz/" target="_blank" class="highlight">@jeraldlxz</a> on instagram</p>
+                <br>
+                <p>If you are looking for some of my <span class="highlight">work</span>,</p>
+                <p><span class="highlight">recent</span> & <span class="highlight">current</span> projects include:</p>
+                <div class="column-list-wrapper">
+                    <div class="column-list">
+                        <ul>
+                            <li>patternfaring: destabilizing dualisms<br>via practices of paradox & placemaking
+                                <br><span class="highlight">ms eh thesis and present struggle</span>
+                            </li>
+                            <li>twin haijinks
+                                <br><span class="highlight">twin cinema inspired<br>poetic experimentation still unfolding</span>
+                            </li>
+                            <li>Climate Change in Popular Films:
+                                <br>A Quantitative Content Analysis
+                                <br><span class="highlight"><a href="https://www.tandfonline.com/doi/abs/10.1080/17524032.2025.2467427" target="_blank">journal article</a> in<br>environmental communication</span>
+                            </li>
+                            <li>found library
+                                <br><span class="highlight"><a href="https://www.instagram.com/afoundlibrary/" target="_blank">participatory art</a> installation<br>and encounters in kinship</span>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>Island Expropriation:<br>A Cartographic Elegy for...
+                                <br><span class="highlight"><a href="https://geography.arizona.edu/sites/geography.arizona.edu/files/2024-09/you_are_here_2024.pdf" target="_blank">mapping relations</a> in You Are Here:<br>The Journal of Creative Geography</span></li>
+                            </li>
+                            <li>a portrait of the<br>environmental humanities
+                                <br><span class="highlight"><a href="https://docs.google.com/presentation/d/1ArmsnRGI_jYURQc8PYgV15dqoH7KMNhpjvK61qO5n4A/edit?usp=sharing" target="_blank">tracing</a> textual and non-textual<br>foundations with scrap wood</span>
+                            </li>
+                            <li>Sea Expropriation: Unearthing the<br>Slow Violence Beneath the Garden City
+                                <br><span class="highlight"><a href="https://docs.google.com/presentation/d/1ArmsnRGI_jYURQc8PYgV15dqoH7KMNhpjvK61qO5n4A/edit?usp=sharing" target="_blank">book chapter</a> in<br>dark mountain issue 25</span>
+                            </li>
+                            <li>... and other intersections between eh & daoism/basketball/the more-than-human</li>
+                        </ul>
+                    </div>
+                </div>
+                <p>
+                    <br>
+                    a reminder to breathe and hydrate;<br>
+                    take care!
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </p>
+            </div>
+        </div>
+        <div class="bottom-gradient"></div>
+    </div>
+
+    <script>
+        // Function to update the progress bar based on scroll position
+        const scrollContent = document.querySelector('.scroll-content');
+        const progressBar = document.querySelector('.progress-bar');
+
+        scrollContent.addEventListener('scroll', () => {
+            const scrollTop = scrollContent.scrollTop; // Current scroll position
+            const scrollHeight = scrollContent.scrollHeight; // Total scrollable height
+            const clientHeight = scrollContent.clientHeight; // Height of the visible area
+
+            // Calculate the scroll percentage
+            const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+
+            // Update the width of the progress bar
+            progressBar.style.width = scrollPercentage + '%';
+        });
+    </script>
+
+</body>
+</html>
