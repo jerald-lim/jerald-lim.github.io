@@ -76,7 +76,7 @@ p {
     }
 }
 
-.highlight {
+.highlight, .cyclea {
     color: #F2C464; /* Yellow color */
     font-style: italic; /* Italic style */
 }
@@ -128,3 +128,25 @@ a:focus {
     z-index: 1000; /* Ensure it is above other content */
     transition: width 0.3s ease; /* Smooth transition for width changes */
 }
+
+.cycle {
+    cursor: pointer;
+    text-decoration: underline;
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0% {
+      text-shadow: 0 0 10px rgba(242, 196, 100, 0.5);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(242, 196, 100, 0.8);
+    }
+    100% {
+      text-shadow: 0 0 10px rgba(242, 196, 100, 0.5);
+    }
+  }
+
+  .cyclea {
+    transition: opacity 1s;
+  }
