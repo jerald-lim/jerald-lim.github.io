@@ -20,52 +20,53 @@
                     <br>
                 </p>
                 <p>Hi! <span class="highlight">Thank you</span> for visiting.</p>
-                <p>I hope you are having a <span class="highlight">lovely</span> day.</p>
-                <p>Just to make sure you've got the right <span class="highlight">Jerald Lim</span></p>
-                <p>(there are a few of us out here),</p>
-                <p>I'm the han chinese <span class="highlight">they/he</span> from pulau ujong</p>
-                <p><span class="highlight">practicing</span> poetry/artmaking/new media shenanigans</p>
-                <p>to incite <span class="highlight">care</span> and <span class="highlight">entanglement</span> and <span class="highlight">good relations</span>.</p>
-                <p>i am a graduate of u of utah's<span class="highlight"> environmental humanities masters program</span></p>
-                <p>and <span class="highlight">yale-nus college</span>.</p>
+                <p>I hope you are having a <span class="cyclea" data-values="lovely / joyous / peaceful" data-interval="18500"></span> day.</p>
+                <p>I'm <span class="highlight">Jerald Lim</span>, a han chinese queer</p>
+                <p></p><span class="cyclea" data-values="undeservedly benefiting from / inescapably complicit in / working against / learning about" data-interval="7000"></span> the <span class="cyclea" data-values="dispossession / expropriation / exploitation" data-interval="6000"></span> of</p>
+                <p><span class="cyclea" data-values="pulau ujong & the orang gelam, kallang, seletar, and selat / mangroves, coasts, and islands across southeast asia / pia pa & the utes, goshute, paiute, and shoshone / modern technological, food, and energy production / colonialism, imperialism, patriarchy, and anthropocentrism"></span></p>
+                <p>practicing <span class="cyclea" data-values="poetry / artmaking / new media" data-interval="8000"></span> shenanigans to incite <span class="cyclea" data-values="care / entanglement / good relations" data-interval="6000">.</p>
+                <p>i am a proud graduate of</p>
+                <p><span class="cyclea" data-values="u of u's environmental humanities program / yale-nus college (2015-2025)" data-interval="8500"></span>.</p>
                 <br>
                 <p>We may have met at:</p>
                 <div class="column-list-wrapper">
                     <div class="column-list">
                         <ul>
-                            <li>COCE2025 in hobart
+                            <li>nac art x tech lab (sg)
+                                <br><span class="highlight">entangled agencies and other workshops</span>
+                            </li>
+                            <li>COCE2025 in hobart (au)
                                 <br><span class="highlight">and/or john seed's deep ecology retreat</span>
                             </li>
-                            <li>Voices for the West 2025
+                            <li>Voices for the West 2025 (us)
                                 <br><span class="highlight">Chris La Tray's workshop</span>
                             </li>
                             <li>School for Poetic Computation<br>spring 2025
                                 <br><span class="highlight">Narrative Constellations</span>
                                 <br><span class="highlight">Relational Reconstructions</span>
                             </li>
+                        </ul>
+                        <ul>
                             <li>Colby Summer Institute in <br>Environmental Humanities 2024
                                 <br><span class="highlight">Astrida Neimanis' workshop</span>
                             </li>
-                        </ul>
-                        <ul>
                             <li>Keystone DH2024
                                 <br><span class="highlight">Game Analysis Panel</span>
                             </li>
-                            <li>found library
+                            <li>found library (sg)
                                 <br><span class="highlight">at islands & starch</span>
                             </li>
-                            <li>Yale-NUS College
+                            <!-- <li>Yale-NUS College
                                 <br><span class="highlight">the college formerly known as</span>
-                            </li>
+                            </li> -->
                             <li>basketball
                                 <br><span class="highlight">at the park or smth</span>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <p>In the midst of turning this space into a <span class="highlight">place</span>.</p>
                 <p>If you are looking to <span class="highlight">get in touch</span>,</p>
-                <p>you may reach me at <span class="highlight">hello[at]jeraldlim.com</span></p>
+                <p>you may reach me at <span class="highlight">contact[at]jeraldlim.com</span></p>
                 <p>or <a href="https://www.instagram.com/jeraldlxz/" target="_blank" class="highlight">@jeraldlxz</a> on instagram</p>
                 <br>
                 <p>If you are looking for some of my <span class="highlight">work</span>,</p>
@@ -147,6 +148,45 @@
 
             // Update the width of the progress bar
             progressBar.style.width = scrollPercentage + '%';
+        });
+
+        //for cycle text
+        document.querySelectorAll('.cycle').forEach(function(el) {
+            const values = el.dataset.values.split('/').map(s => s.trim());
+            let index = 0;
+            el.textContent = values[index];
+
+            el.addEventListener('click', function () {
+            index = (index + 1) % values.length;
+            el.textContent = values[index];
+            });
+        });
+
+        // for auto-cycle text
+        document.querySelectorAll('.cyclea').forEach(function (el) {
+            const values = el.dataset.values.split('/').map(s => s.trim());
+            const interval = parseInt(el.dataset.interval, 10) || 10000; // fallback
+            let currentIndex = 0;
+
+            el.textContent = values[currentIndex];
+            el.style.opacity = 1;
+
+            function showNext() {
+            el.style.opacity = 0; // fade out
+
+            setTimeout(function () {
+                let randomIndex;
+                do {
+                randomIndex = Math.floor(Math.random() * values.length);
+                } while (values.length > 1 && randomIndex === currentIndex);
+
+                currentIndex = randomIndex;
+                el.textContent = values[currentIndex];
+                el.style.opacity = 1; // fade in
+            }, 1000); // match CSS duration
+            }
+
+            setInterval(showNext, interval);
         });
     </script>
 
